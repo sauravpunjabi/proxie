@@ -53,6 +53,10 @@ export const handle: Handle = async ({ event, resolve }) => {
 
     const { session, user } = await event.locals.safeGetSession()
 
+    // Assign to locals so other server functions can access them
+    event.locals.session = session
+    event.locals.user = user
+
     if (event.url.pathname === '/login' || event.url.pathname === '/register') {
         if (user) {
             return new Response(null, {
