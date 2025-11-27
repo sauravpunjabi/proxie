@@ -44,6 +44,7 @@
 	"dependencies": {
 		"@supabase/ssr": "^0.8.0",
 		"@supabase/supabase-js": "^2.86.0",
+		"mode-watcher": "^1.1.0",
 		"zod-form-data": "^3.0.1"
 	}
 }

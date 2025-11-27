@@ -1,21 +1,29 @@
-<<<<<<< HEAD
-# Proxie - Task Management App
+# TurboTask
 
-A full-featured Task Management application built with SvelteKit, Supabase, and Shadcn Svelte.
+A modern, full-featured Task Management application built with SvelteKit, Supabase, and Shadcn Svelte.
 
-## Features (Planned)
+## Features
 
-- **Authentication**: Sign up, Login, Password Reset.
-- **Task Management**: Create, Read, Update, Delete tasks.
-- **Organization**: Filter by status, priority; Sort by due date.
-- **UI**: Modern, responsive design with Dark Mode.
+-   **Authentication**: Secure Sign Up and Login powered by Supabase Auth.
+-   **Task Management**: Create, Read, Update, and Delete (CRUD) tasks.
+-   **Organization**: Filter tasks by status and sort by date or priority.
+-   **Modern UI**: Beautiful, responsive interface with Dark Mode support.
+-   **Real-time**: Fast and responsive interactions.
+
+## Tech Stack
+
+-   **Framework**: [SvelteKit](https://kit.svelte.dev/)
+-   **Database & Auth**: [Supabase](https://supabase.com/)
+-   **UI Components**: [Shadcn Svelte](https://next.shadcn-svelte.com/)
+-   **Styling**: [Tailwind CSS](https://tailwindcss.com/)
+-   **Icons**: [Lucide Svelte](https://lucide.dev/)
 
 ## Setup
 
 1.  **Clone the repository**:
     ```bash
-    git clone <repository-url>
-    cd Proxie
+    git clone https://github.com/sauravpunjabi/proxie.git
+    cd proxie
     ```
 
 2.  **Install dependencies**:
@@ -30,20 +38,15 @@ A full-featured Task Management application built with SvelteKit, Supabase, and 
     PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
     ```
 
-4.  **Database Setup**:
-    Run the SQL commands in `schema.sql` in your Supabase SQL Editor to set up the database.
-
-5.  **Run the app**:
+4.  **Run the development server**:
     ```bash
     npm run dev
     ```
 
-## Tech Stack
+## Deployment
 
-- **Framework**: SvelteKit
-- **Language**: TypeScript
-- **Styling**: Tailwind CSS, Shadcn Svelte
-- **Backend/DB**: Supabase
-=======
-# proxie
->>>>>>> 219838d3bcdadc127b15df36ef1065395084af58
+This project is ready to be deployed on Vercel, Netlify, or any platform that supports SvelteKit.
+
+## License
+
+MIT

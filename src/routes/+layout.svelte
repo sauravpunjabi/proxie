@@ -1,5 +1,6 @@
 <script>import "../app.css";
 import favicon from '$lib/assets/favicon.svg';
+import { ModeWatcher } from 'mode-watcher';
 
 import { invalidate } from '$app/navigation';
 	import { onMount } from 'svelte';
@@ -25,4 +26,5 @@ import { invalidate } from '$app/navigation';
 
 <Navbar {user} />
 
+<ModeWatcher />
 {@render children()}

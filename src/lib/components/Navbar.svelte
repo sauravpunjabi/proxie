@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { Button } from '$lib/components/ui/button';
+    import ModeToggle from '$lib/components/ModeToggle.svelte';
 	import type { User } from '@supabase/supabase-js';
 
 	let { user } = $props();
@@ -13,13 +14,14 @@
 			</a>
 		</div>
 
-		{#if user}
-			<div class="flex items-center gap-4">
-				<span class="text-sm text-muted-foreground hidden md:inline-block">{user.email}</span>
-				<form action="/logout" method="GET">
-					<Button variant="ghost" size="sm" type="submit">Logout</Button>
-				</form>
-			</div>
-		{/if}
+		<div class="flex items-center gap-4">
+            <ModeToggle />
+            {#if user}
+                <span class="text-sm text-muted-foreground hidden md:inline-block">{user.email}</span>
+                <form action="/logout" method="GET">
+                    <Button variant="ghost" size="sm" type="submit">Logout</Button>
+                </form>
+            {/if}
+        </div>
 	</div>
 </nav>
