@@ -45,7 +45,8 @@ A modern, full-featured Task Management application built with SvelteKit, Supaba
 
 ## Deployment
 
-This project is ready to be deployed on Vercel, Netlify, or any platform that supports SvelteKit.
+This project is deployed on vercel. 
+**Link**:https://proxie-eyig.vercel.app/login
 
 ## License
 
