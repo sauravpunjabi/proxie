@@ -14,40 +14,53 @@ export const handle: Handle = async ({ event, resolve }) => {
         },
     })
 
-    /**
-     * Unlike `supabase.auth.getSession()`, which returns the session _at the time_ the client was initialized,
-     * this function returns the current session.
-     */
     event.locals.safeGetSession = async () => {
         const {
             data: { session },
         } = await event.locals.supabase.auth.getSession()
+
         if (!session) {
             return { session: null, user: null }
         }
 
-        const {
-            data: { user },
-            error,
-        } = await event.locals.supabase.auth.getUser()
-        if (error) {
-            // JWT validation has failed
+        try {
+            const {
+                data: { user },
+                error,
+            } = await event.locals.supabase.auth.getUser()
+
+            if (error) {
+                console.error('safeGetSession: getUser error', error)
+                // Fallback to session user if getUser fails (e.g. network error)
+                if (session && session.user) {
+                    console.log('safeGetSession: Falling back to session user', session.user.email)
+                    return { session, user: session.user }
+                }
+                return { session: null, user: null }
+            }
+
+            return { session, user }
+        } catch (e) {
+            console.error('safeGetSession: Exception during getUser', e)
+            // Fallback to session user if exception occurs
+            if (session && session.user) {
+                console.log('safeGetSession: Falling back to session user (exception)', session.user.email)
+                return { session, user: session.user }
+            }
             return { session: null, user: null }
         }
-
-        return { session, user }
     }
 
     const { session, user } = await event.locals.safeGetSession()
 
     if (event.url.pathname === '/login' || event.url.pathname === '/register') {
-        if (session) {
+        if (user) {
             return new Response(null, {
                 status: 303,
                 headers: { location: '/' },
             })
         }
-    } else if (event.url.pathname !== '/auth/callback' && !session) {
+    } else if (event.url.pathname !== '/auth/callback' && !user) {
         // Protect all other routes
         return new Response(null, {
             status: 303,

@@ -10,10 +10,12 @@
 	<div class="flex h-16 items-center px-4 container mx-auto justify-between">
 		<div class="font-bold text-xl">Proxie</div>
 		
+        
+
 		{#if user}
 			<div class="flex items-center gap-4">
 				<span class="text-sm text-muted-foreground">{user.email}</span>
-				<form action="/logout" method="POST" use:enhance>
+				<form action="/logout" method="POST">
 					<Button variant="outline" type="submit">Logout</Button>
 				</form>
 			</div>
