@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Proxie - Task Management App
 
 A full-featured Task Management application built with SvelteKit, Supabase, and Shadcn Svelte.
@@ -43,3 +44,6 @@ A full-featured Task Management application built with SvelteKit, Supabase, and 
 - **Language**: TypeScript
 - **Styling**: Tailwind CSS, Shadcn Svelte
 - **Backend/DB**: Supabase
+=======
+# proxie
+>>>>>>> 219838d3bcdadc127b15df36ef1065395084af58
